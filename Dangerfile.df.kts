@@ -13,7 +13,7 @@ xmlDoc.documentElement.normalize()
 
 val danger = Danger(args)
 val allSourceFiles = danger.git.modifiedFiles + danger.git.createdFiles
-
+allSourceFiles.forEach { println(it.toString()) }
 val fileList: NodeList = xmlDoc.getElementsByTagName("file")
 
 for (i in 0 until fileList.length) {
@@ -31,6 +31,7 @@ for (i in 0 until fileList.length) {
         println("Line: $line")
         val message = error.getAttribute("message")
         println("Message: $message")
+
 
 
         if (allSourceFiles.any { it.contains(fileName) }) {
