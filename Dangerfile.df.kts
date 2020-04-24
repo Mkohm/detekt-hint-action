@@ -39,10 +39,12 @@ for (i in 0 until fileList.length) {
             println(fileName.length)
         }
         if (allSourceFiles.any { fileName.trim().contains(it.trim()) }) {
+            // Find the sourcefile without the /github/workflow prefix to its path.
+            val file = allSourceFiles.find { fileName.trim().contains(it.trim()) } ?: fileName
 
             // Only notify about the warning if the file has been modified in this PR
             println("Adds warning for $fileName")
-            warn(message, fileName, line.toInt())
+            warn(message, file, line.toInt())
         }
     }
 }
