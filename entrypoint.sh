@@ -8,7 +8,7 @@ pwd
 curl -sSLO https://github.com/detekt/detekt/releases/download/v1.8.0/detekt && chmod a+x detekt
 
 # download detekt-hint jar
-curl -sSLo detekt-hint-0.1.5.jar https://oss.sonatype.org/service/local/artifact/maven/redirect?r=releases&g=io.github.mkohm&a=detekt-hint&v=0.1.5&e=jar
+curl -L "https://oss.sonatype.org/service/local/artifact/maven/redirect?r=releases&g=io.github.mkohm&a=detekt-hint&v=0.1.5&e=jar" -o detekt-hint-0.1.5.jar
 echo "Should show detekt-hint jar:"
 ls
 
