@@ -13,7 +13,7 @@ echo "Should show detekt-hint jar:"
 ls
 
 # Run detekt with the detekt-hint plugin, requiring a config file to be set up in the repository
-java -jar detekt --plugins detekt-hint-0.1.5.jar --config config/detekt-hint-config.yml --input / -cp . --report xml:detekt-hint-report.xml --includes '**/*.kt'
+java -jar detekt --plugins detekt-hint-0.1.5.jar --config config/detekt-hint-config.yml --input . -cp . --report xml:detekt-hint-report.xml --includes '**/*.kt'
 
 # Install danger-kotlin
 bash <(curl -s https://raw.githubusercontent.com/danger/kotlin/master/scripts/install.sh)
