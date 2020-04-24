@@ -31,7 +31,8 @@ for (i in 0 until fileList.length) {
         val message = error.getAttribute("message")
         println("Message: $message")
 
-
+        println("Modifiedfiles")
+        println(danger.git.modifiedFiles.forEach { println(it.toString()) })
         if (danger.git.modifiedFiles.any { it.contains(fileName) }) {
 
             // Only notify about the warning if the file has been modified in this PR
