@@ -12,6 +12,7 @@ val xmlDoc: Document = DocumentBuilderFactory.newInstance().newDocumentBuilder()
 xmlDoc.documentElement.normalize()
 
 val danger = Danger(args)
+val allSourceFiles = danger.git.modifiedFiles + danger.git.createdFiles
 
 val fileList: NodeList = xmlDoc.getElementsByTagName("file")
 
@@ -31,9 +32,8 @@ for (i in 0 until fileList.length) {
         val message = error.getAttribute("message")
         println("Message: $message")
 
-        println("Modifiedfiles")
-        println(danger.git.modifiedFiles.forEach { println(it.toString()) })
-        if (danger.git.modifiedFiles.any { it.contains(fileName) }) {
+
+        if (allSourceFiles.any { it.contains(fileName) }) {
 
             // Only notify about the warning if the file has been modified in this PR
             println("Adds warning for $fileName")
