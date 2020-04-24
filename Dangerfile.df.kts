@@ -34,7 +34,7 @@ for (i in 0 until fileList.length) {
 
 
 
-        if (allSourceFiles.any { it.contains(fileName) }) {
+        if (allSourceFiles.any { fileName.contains(it) }) {
 
             // Only notify about the warning if the file has been modified in this PR
             println("Adds warning for $fileName")
