@@ -3,6 +3,7 @@ import org.w3c.dom.Element
 import org.w3c.dom.NodeList
 import systems.danger.kotlin.Danger
 import systems.danger.kotlin.warn
+import systems.danger.kotlin.message
 import java.io.File
 import javax.xml.parsers.DocumentBuilderFactory
 
@@ -32,19 +33,13 @@ for (i in 0 until fileList.length) {
         val message = error.getAttribute("message")
         println("Message: $message")
 
-
-
-
-        allSourceFiles.forEach {  println(it.length)
-            println(fileName.length)
-        }
         if (allSourceFiles.any { fileName.trim().contains(it.trim()) }) {
             // Find the sourcefile without the /github/workflow prefix to its path.
             val file = allSourceFiles.find { fileName.trim().contains(it.trim()) } ?: fileName
 
             // Only notify about the warning if the file has been modified in this PR
             println("Adds warning for $fileName")
-            warn(message, file, line.toInt())
+            message(message, file, line.toInt())
         }
     }
 }
