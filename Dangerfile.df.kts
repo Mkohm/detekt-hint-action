@@ -39,7 +39,7 @@ for (i in 0 until fileList.length) {
 
             // Only notify about the warning if the file has been modified in this PR
             println("Adds warning for $fileName")
-            message(message, file, line.toInt())
+            warn(message, file, line.toInt())
         }
     }
 }
