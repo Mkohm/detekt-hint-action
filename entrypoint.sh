@@ -2,6 +2,7 @@
 
 # Set the danger github api token as env variable
 export DANGER_GITHUB_API_TOKEN="$1"
+source ~/.bashrc
 
 # download detekt jar
 curl -sSLO https://github.com/detekt/detekt/releases/download/v1.8.0/detekt && chmod a+x detekt
