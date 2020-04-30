@@ -12,7 +12,9 @@ curl -L "https://oss.sonatype.org/service/local/artifact/maven/redirect?r=releas
 echo "Should show detekt-hint jar:"
 ls
 
-# Run detekt with the detekt-hint plugin, requiring a config file to be set up in the repository. Redirect output to a separate file to not bloat the logs with warning from the type-resolution.
+echo "Running detekt with the detekt-hint plugin ..."
+
+# Run detekt with the detekt-hint plugin, requiring a config file to be set up in the repository. Redirect output to null to not bloat the logs with warning from the type-resolution.
 java -jar detekt --plugins detekt-hint-0.1.5.jar --config config/detekt-hint-config.yml --input . -cp . --report xml:detekt-hint-report.xml --includes '**/*.kt' &> /dev/null
 
 # Install danger-kotlin
