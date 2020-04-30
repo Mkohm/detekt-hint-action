@@ -19,4 +19,4 @@ java -jar detekt --plugins detekt-hint-0.1.5.jar --config config/detekt-hint-con
 bash <(curl -s https://raw.githubusercontent.com/danger/kotlin/master/scripts/install.sh)
 source ~/.bash_profile
 
-npx --package danger danger-kotlin ci --dangerfile /Dangerfile.df.kts
+npx --package danger danger-kotlin ci --dangerfile /Dangerfile.df.kts --verbose
